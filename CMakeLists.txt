@@ -7,6 +7,7 @@ endif()
 project(h05_tmp VERSION 0.0.0$ENV{TRAVIS_BUILD_NUMBER})
 
 set(bin_name print_ip)
+set(ENV{TRAVIS_PACKET_NAME}} ${bin_name})
 add_executable(${bin_name}
     main.cpp
     .travis.yml
