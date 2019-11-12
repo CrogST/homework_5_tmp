@@ -6,10 +6,9 @@ endif()
 
 project(h05_tmp VERSION 0.0.0$ENV{TRAVIS_BUILD_NUMBER})
 
-set(bin_name print_ip)
-set(ENV{TRAVIS_PACKET_NAME}} ${bin_name})
-add_executable(${bin_name}
+add_executable(print_ip
     main.cpp
+    print_ip.h
     .travis.yml
 )
 
@@ -17,7 +16,7 @@ add_executable(Tests
     "test.cpp"
 )
 
-set_target_properties(${bin_name} Tests PROPERTIES
+set_target_properties(print_ip Tests PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
     COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra"
@@ -38,8 +37,8 @@ enable_testing()
 add_test(proj_tests Tests)
 
 #настройка создания пакета
-install(TARGETS ${bin_name} RUNTIME DESTINATION bin)
-set(CPACK_PACKAGE_NAME ${bin_name})
+install(TARGETS print_ip RUNTIME DESTINATION bin)
+set(CPACK_PACKAGE_NAME print_ip)
 set(CPACK_GENERATOR DEB)
 set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
 set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")

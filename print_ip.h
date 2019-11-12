@@ -30,9 +30,9 @@ class print_ip {
     struct is_equal<T, U, Args...> : std::false_type {};
 
     template<int T, typename ... U>
-    static void tuple_out(std::tuple<U...> val) {
+    static void tuple_out(std::tuple<U...> val) {        
         std::cout << std::get<T>(val);
-        if constexpr(T < std::tuple_size_v<decltype(val)> - 1) {
+        if constexpr (T < std::tuple_size<decltype(val)>::value - 1) {
             std::cout << ".";
             tuple_out<T+1, U...>(val);
         }
@@ -41,7 +41,7 @@ class print_ip {
 public:
 
     template <typename T>
-    static std::enable_if_t<std::is_integral_v<T>, void> print(T val) {
+    static std::enable_if_t<std::is_integral<T>::value, void> print(T val) {
         auto size = sizeof(T);
         std::string str;
         for(size_t i = 0; i < size; i++) {
