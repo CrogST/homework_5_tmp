@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <list>
-#include <map>
 
 #include "print_ip.h"
 
