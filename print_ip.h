@@ -6,8 +6,10 @@
 #include <list>
 #include <tuple>
 
+/// \brief класс вывода ip адреса
 class print_ip {
 
+    /// \brief метафункция, для проверки, является ли тип контейнером
     template <typename T>
     struct is_stl_cont : std::false_type {};
 
@@ -20,6 +22,7 @@ class print_ip {
     template <typename T>
     static const auto is_stl_cont_v = is_stl_cont<T>::value;
 
+    /// \brief метафункция, для определения одинаковых типов
     template<typename T, typename ... Args> struct is_equal;
     template<typename T> struct is_equal<T> : std::true_type {};
 
@@ -40,6 +43,7 @@ class print_ip {
 
 public:
 
+    /// \brief вывода ip адреса, представленного в виде целочисленного типа
     template <typename T>
     static std::enable_if_t<std::is_integral_v<T>, void> print(T val) {
         auto size = sizeof(T);
@@ -52,6 +56,7 @@ public:
         std::cout << str << std::endl;
     }
 
+    /// \brief вывода ip адреса, представленного в виде контейнера
     template <typename T>
     static std::enable_if_t<is_stl_cont_v<T>, void> print(T val) {
         std::string str;
@@ -64,12 +69,12 @@ public:
         std::cout << str << std::endl;
     }
 
-    //template<typename T>
-    //std::enable_if_t<std::is_same_v<T, std::string>, void> print(T val) {
+    /// \brief вывода ip адреса, представленного в виде string
     static void print(std::string val) {
         std::cout << val << std::endl;
     }
 
+    /// \brief вывода ip адреса, представленного в виде tuple
     template<typename ... T>
     std::enable_if_t<is_equal<T...>::value, void>
     static print(std::tuple<T...> val) {

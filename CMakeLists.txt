@@ -11,6 +11,7 @@ set(ENV{TRAVIS_PACKET_NAME}} ${bin_name})
 add_executable(${bin_name}
     main.cpp
     .travis.yml
+    .doxygen.conf
 )
 
 add_executable(Tests

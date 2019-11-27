@@ -5,14 +5,23 @@ addons:
   apt:
     packages:
     - libboost-test-dev
+    - doxygen
 script:
 - cmake .
 - cmake --build .
 - cmake --build . --target test
 - cmake --build . --target package
+- doxygen .doxygen.conf
 - printenv
 deploy:
-  provider: script
-  skip_cleanup: true
-  script:
-  - curl -f -T $TRAVIS_PACKET_NAME-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -ucrogst:$bintray_api_key "https://api.bintray.com/content/crogst/Repository/otus-cpp/$TRAVIS_BUILD_NUMBER/$TRAVIS_PACKET_NAME-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=xenial;deb_component=main;deb_architecture=amd64;publish=1"
+  - provider: script
+    edge: true
+    script:
+    - curl -f -T $TRAVIS_PACKET_NAME-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -ucrogst:$bintray_api_key "https://api.bintray.com/content/crogst/Repository/otus-cpp/$TRAVIS_BUILD_NUMBER/$TRAVIS_PACKET_NAME-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=xenial;deb_component=main;deb_architecture=amd64;publish=1"
+  - provider: pages
+    skip_cleanup: true
+    keep_history: true
+    github_token: $GITHUB_TOKEN
+    local_dir: html
+    on:
+      branch: master
