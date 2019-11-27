@@ -10,6 +10,7 @@ set(bin_name print_ip)
 set(ENV{TRAVIS_PACKET_NAME}} ${bin_name})
 add_executable(${bin_name}
     main.cpp
+    print_ip.h
     .travis.yml
     .doxygen.conf
 )

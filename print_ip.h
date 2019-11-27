@@ -45,7 +45,7 @@ public:
 
     /// \brief вывода ip адреса, представленного в виде целочисленного типа
     template <typename T>
-    static std::enable_if_t<std::is_integral_v<T>, void> print(T val) {
+    static std::enable_if_t<std::is_integral<T>::value, void> print(T val) {
         auto size = sizeof(T);
         std::string str;
         for(size_t i = 0; i < size; i++) {
