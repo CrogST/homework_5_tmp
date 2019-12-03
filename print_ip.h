@@ -32,6 +32,9 @@ class print_ip {
     template<typename T, typename U, typename ... Args>
     struct is_equal<T, U, Args...> : std::false_type {};
 
+    template <typename ... Args>
+    static const auto is_equal_v = is_equal<Args...>::value;
+
     template<int T, typename ... U>
     static void tuple_out(std::tuple<U...> val) {
         std::cout << std::get<T>(val);
@@ -76,7 +79,7 @@ public:
 
     /// \brief вывода ip адреса, представленного в виде tuple
     template<typename ... T>
-    std::enable_if_t<is_equal<T...>::value, void>
+    std::enable_if_t<is_equal_v<T...>, void>
     static print(std::tuple<T...> val) {
         tuple_out<0>(val);
         std::cout << std::endl;
