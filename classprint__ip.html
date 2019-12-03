@@ -108,10 +108,10 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a84117d22b703cfb187cd8b474c4dc050"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classprint__ip.html#a84117d22b703cfb187cd8b474c4dc050">print</a> (std::string val)</td></tr>
 <tr class="memdesc:a84117d22b703cfb187cd8b474c4dc050"><td class="mdescLeft">&#160;</td><td class="mdescRight">вывода ip адреса, представленного в виде string.  <a href="#a84117d22b703cfb187cd8b474c4dc050">More...</a><br /></td></tr>
 <tr class="separator:a84117d22b703cfb187cd8b474c4dc050"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcbc977435791e81a75c213d51b76d18"><td class="memTemplParams" colspan="2">template&lt;typename... T&gt; </td></tr>
-<tr class="memitem:abcbc977435791e81a75c213d51b76d18"><td class="memTemplItemLeft" align="right" valign="top">static std::enable_if_t&lt; is_equal&lt; T... &gt;::value, void &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classprint__ip.html#abcbc977435791e81a75c213d51b76d18">print</a> (std::tuple&lt; T... &gt; val)</td></tr>
-<tr class="memdesc:abcbc977435791e81a75c213d51b76d18"><td class="mdescLeft">&#160;</td><td class="mdescRight">вывода ip адреса, представленного в виде tuple.  <a href="#abcbc977435791e81a75c213d51b76d18">More...</a><br /></td></tr>
-<tr class="separator:abcbc977435791e81a75c213d51b76d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb86e313d2d7d6474db82f663583f23b"><td class="memTemplParams" colspan="2">template&lt;typename... T&gt; </td></tr>
+<tr class="memitem:acb86e313d2d7d6474db82f663583f23b"><td class="memTemplItemLeft" align="right" valign="top">static std::enable_if_t&lt; is_equal_v&lt; T... &gt;, void &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classprint__ip.html#acb86e313d2d7d6474db82f663583f23b">print</a> (std::tuple&lt; T... &gt; val)</td></tr>
+<tr class="memdesc:acb86e313d2d7d6474db82f663583f23b"><td class="mdescLeft">&#160;</td><td class="mdescRight">вывода ip адреса, представленного в виде tuple.  <a href="#acb86e313d2d7d6474db82f663583f23b">More...</a><br /></td></tr>
+<tr class="separator:acb86e313d2d7d6474db82f663583f23b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>класс вывода ip адреса </p>
@@ -198,7 +198,7 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="abcbc977435791e81a75c213d51b76d18"></a>
+<a class="anchor" id="acb86e313d2d7d6474db82f663583f23b"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -208,7 +208,7 @@ template&lt;typename... T&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::enable_if_t&lt;is_equal&lt;T...&gt;::value, void&gt; print_ip::print </td>
+          <td class="memname">static std::enable_if_t&lt;is_equal_v&lt;T...&gt;, void&gt; print_ip::print </td>
           <td>(</td>
           <td class="paramtype">std::tuple&lt; T... &gt;&#160;</td>
           <td class="paramname"><em>val</em></td><td>)</td>
